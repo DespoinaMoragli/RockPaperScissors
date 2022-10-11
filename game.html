@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="UTF-8"
+    <body>
+    <script>
+        //a function that will randomly return one of the 3 values
+      function getComputerChoice() {
+        return ['rock', 'paper', 'scissors'][Math.floor(Math.random() * 3)];
+}
+         getComputerChoice();
+//a function that playes a single round of the game
+    function singleround(playerSelection, computerSelection) {
+        playerSelection = playerSelection.tolowercase();
+        //for ties
+        if (playerSelection === computerSelection) {
+            return 'It is a tie! ';
+        }
+        let result;
+        //for paper beats rock
+      if (playerSelection === 'paper' ) {
+       if (computerSelection === 'rock') {
+        result =  'you win!!';
+       }
+       else {
+        result = 'you lose!';
+       }
+    }
+    //for rock beats scissors
+    else if (playerSelection === 'rock' ) {
+       if (computerSelection === 'scissors') {
+        result =  'you win!';
+       }
+       else {
+        result =  'you lose!';
+       }
+    }
+    //for scissors beat paper
+    else if (playerSelection === 'scissors' ) {
+       if (computerSelection === 'paper') {
+        result = 'you win!';
+       }
+       else {
+        result = 'you lose!';
+       }
+    }  
+    return result;
+    }
+    // make a game that lasts 5 rounds 
+    function game() {
+        let computerscore = 0 ;
+        let playerscore = 0 ;
+        for (let i = 0; i < 5; i++) {
+        player = prompt('choose : rock, paper, scissors');
+        computer = getComputerChoice();
+        const result = singleround(playerSelection, computerSelection);
+        if (result === 'you win!') {
+            playerscore++;
+        }
+        else if ( result === 'you lose!') {
+            computerscore++;
+        }
+       if (computerscore === 5 ) {
+        return 'YOU LOSE THE GAME'
+       }
+       else if (playerscore === 5){
+        return 'YOU WIN THE GAME'
+       }
+       text.content = 'player score ${playerscore} computer score ${computerscore}'
+       console.log({playerscore, computerscore});
+    }
+}
+    game();
+    </script>
+    </body>
+</html>
